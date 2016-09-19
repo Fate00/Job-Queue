@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="jumbotron">
+                <form>
+                    <div class="form-group">
+                        <label for='textArea'>Description</label>
+                        <textarea class="form-control" id="textArea" ng-model="description" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success" ng-click="submit()">Submit</button>
+                </form>
+            </div>
+            <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + alert.type" close="closeAlert($index)">{{ alert.msg }}</div>
+        </div>
+        <div class="col-lg-1">
+        	<button type="button" class="btn btn-link" ng-click="changeView()"><strong>Status View</strong></button>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-10 col-lg-offset-1">
+    		<div class="well">
+    			<form class="form-horizontal">
+    				<div class="form-group">
+					    <label class="col-lg-2 control-label" for="jobId">Job Id</label>
+					    <div class="col-lg-5">
+					    	<input type="text" class="form-control" id="jobId" placeholder="Please input the job id" ng-model='jobId'>
+					    </div>
+					    <div class="col-lg-2">
+					    	<button type="submit" class="btn btn-default" ng-click='checkStatus(jobId)'>Check it</button>
+					    </div>
+					</div>											
+    			</form>
+    		</div>
+    		<div uib-alert ng-repeat="alert in statusAlerts" ng-class="'alert-' + alert.type" close="closeStatusAlert($index)">{{ alert.msg }}</div>
+    	</div>
+    </div>
+</div>
